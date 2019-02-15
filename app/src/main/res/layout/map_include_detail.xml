@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/activity_maps" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_marginTop="40dp">
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--android:id="@+id/ivHostImage"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/profile_image"-->
+        <!--app:civ_border_color="#fff"-->
+        <!--app:civ_border_width="2dp" />-->
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:onClick="CancelAction"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textAllCaps="false"/>
+
+    </FrameLayout>
+
+
+    <!--<FrameLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom"-->
+    <!--android:layout_marginBottom="10dp">-->
+
+    <!--<include-->
+    <!--android:id="@+id/categ_detail"-->
+    <!--layout="@layout/map_category" />-->
+
+    <!--<include-->
+    <!--android:id="@+id/marker_user_detail"-->
+    <!--layout="@layout/map_marker_person_detail"-->
+    <!--android:visibility="gone" />-->
+    <!--</FrameLayout>-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/detail_back"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/wight"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    app:srcCompat="@drawable/circle_outline"/>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/colorPrimary"/>
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+
+                    app:srcCompat="@drawable/circle"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:drawablePadding="20dp"
+                    android:elevation="3dp"
+                    android:gravity="center|left"
+                    android:text="My Location"
+                    android:textColor="@color/gray" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/wight_dark"/>
+
+                <TextView
+                    android:id="@+id/whereTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:elevation="3dp"
+                    android:gravity="center|left"
+                    android:text="where do you want to go?"
+                    android:textColor="@color/gray" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:drawablePadding="20dp"
+            android:textColor="@color/gray_text"
+            android:text="Cash"
+            android:gravity="left|center"
+            android:drawableLeft="@drawable/square_inc_cash"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/wight_dark"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:drawablePadding="20dp"
+            android:textColor="@color/gray_text"
+            android:text="Car"
+            android:gravity="left|center"
+            android:drawableLeft="@drawable/car_"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/wight_dark"/>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:background="@drawable/signup_button_back"
+        android:text="Confirm"
+        android:paddingRight="60dp"
+        android:onClick="DriverAction"
+        android:paddingLeft="30dp"
+        android:textAllCaps="true"
+        android:textColor="#FFF"
+        android:textSize="16sp"/>
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:indeterminateTint="?android:colorAccent"
+        android:indeterminateTintMode="src_in" />
+
+</android.support.design.widget.CoordinatorLayout>

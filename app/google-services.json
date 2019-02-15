@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "257412246317",
+    "firebase_url": "https://tito-c762f.firebaseio.com",
+    "project_id": "tito-c762f",
+    "storage_bucket": "tito-c762f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257412246317:android:5699938da268902f",
+        "android_client_info": {
+          "package_name": "com.OrxtraDev.TitoApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257412246317-o3gaqqn6ljtmm5voje2k7ik31htu7pb0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.OrxtraDev.TitoApp",
+            "certificate_hash": "238967f33c70fdf646b3dbc4f9e7dc3c5153b95c"
+          }
+        },
+        {
+          "client_id": "257412246317-sd187j4m76rhpl8erf4i0e04egev1f09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRevAJ6tOxpbb3FfllnrxV56I7znl7OKg"
+        },
+        {
+          "current_key": "AIzaSyAtgKtF1q3GUUOM0QxIomPm9mdYVhCrU9k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257412246317-sd187j4m76rhpl8erf4i0e04egev1f09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257412246317:android:35eec1f8dd20cfc9",
+        "android_client_info": {
+          "package_name": "com.TitoApp.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257412246317-9pepn5kebfk441b45puje2h74tas6h13.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.TitoApp.driver",
+            "certificate_hash": "238967f33c70fdf646b3dbc4f9e7dc3c5153b95c"
+          }
+        },
+        {
+          "client_id": "257412246317-sd187j4m76rhpl8erf4i0e04egev1f09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRevAJ6tOxpbb3FfllnrxV56I7znl7OKg"
+        },
+        {
+          "current_key": "AIzaSyAtgKtF1q3GUUOM0QxIomPm9mdYVhCrU9k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257412246317-sd187j4m76rhpl8erf4i0e04egev1f09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="nkdroid.tutorial.navigationview.MainActivity">
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:title="Payment"
+            android:icon="@drawable/credit_card"/>
+        <item
+            android:title="Your Trips"
+            android:icon="@drawable/history"/>
+        <item
+            android:title="Setting"
+            android:icon="@drawable/settings"/>
+        <item
+            android:title="About"
+            android:icon="@drawable/alert_circle_outline"/>
+        <item
+            android:id="@+id/logout_lm"
+            android:title="Logout"
+            android:icon="@drawable/logout"/>
+        <!--<item-->
+            <!--android:title="Profile"-->
+            <!--android:icon="@drawable/ic_person"/>-->
+
+        <!--<item-->
+            <!--android:title="Bookmark"-->
+            <!--android:icon="@drawable/bookmark_dark"/>-->
+
+        <!--<item-->
+            <!--android:title="Notification"-->
+            <!--android:icon="@drawable/ic_notifications"/>-->
+        <!--<item-->
+            <!--android:title="Settings"-->
+            <!--android:icon="@drawable/ic_settings"/>-->
+
+        <!--<item-->
+            <!--android:id="@+id/main1"-->
+            <!--android:icon="@drawable/baby"-->
+            <!--android:title="حملي"/>-->
+        <!--<item-->
+                <!--android:id="@+id/calendar_lm"-->
+                <!--android:icon="@drawable/calendar"-->
+                <!--android:title="التنبيهات"/>-->
+        <!--<item-->
+            <!--android:id="@+id/food_lm"-->
+            <!--android:icon="@drawable/food___"-->
+            <!--android:title="الطعام المقترح"/>-->
+
+        <!--<item-->
+            <!--android:id="@+id/advise_lm"-->
+            <!--android:icon="@drawable/note_left"-->
+            <!--android:title="نصائح للحمل"/>-->
+
+
+
+        <!--<item-->
+            <!--android:id="@+id/excersice_lm"-->
+            <!--android:icon="@drawable/human"-->
+            <!--android:title="تمارين للحمل"/>-->
+
+        <!--<item-->
+            <!--android:id="@+id/selfie_lm"-->
+            <!--android:icon="@drawable/camera_iris"-->
+            <!--android:title="قم بأخذ سيلفي"/>-->
+        <!--<item-->
+            <!--android:id="@+id/profile_lm"-->
+            <!--android:title="الصفحه الشخصيه"-->
+            <!--android:icon="@drawable/ic_person"/>-->
+        <!--<item-->
+            <!--android:id="@+id/logout_lm"-->
+            <!--android:title="تسجيل الخروج"-->
+            <!--android:icon="@drawable/logout"/>-->
+
+
+    </group>
+</menu>

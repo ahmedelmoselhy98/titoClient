@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/activity_maps" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_marginTop="40dp">
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--android:id="@+id/ivHostImage"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/profile_image"-->
+        <!--app:civ_border_color="#fff"-->
+        <!--app:civ_border_width="2dp" />-->
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textAllCaps="false"/>
+
+    </FrameLayout>
+
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:layout_marginBottom="10dp">-->
+
+        <!--<include-->
+            <!--android:id="@+id/categ_detail"-->
+            <!--layout="@layout/map_category" />-->
+
+        <!--<include-->
+            <!--android:id="@+id/marker_user_detail"-->
+            <!--layout="@layout/map_marker_person_detail"-->
+            <!--android:visibility="gone" />-->
+    <!--</FrameLayout>-->
+
+
+
+
+    <LinearLayout
+        android:id="@+id/driverParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/detail_back"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/driverIV"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/marker_test_1"/>
+                <TextView
+                    android:id="@+id/driverNameTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray_text"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="Mohamed Ali"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:numStars="5"
+                        android:rating="4.5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="4.5"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/gray_text"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+        </LinearLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/wight_dark"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="Black"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/gray_text"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="lexus ES350"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/gray_text"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:textSize="14sp"
+                    android:text="L28771"
+                    android:gravity="center"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:background="@drawable/licence_back"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/gray_text"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/callBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:background="@drawable/signup_button_back"
+        android:text="Call The Driver"
+        android:paddingRight="60dp"
+        android:paddingLeft="60dp"
+
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/cellphone_iphone"
+        android:textColor="#FFF"
+        android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/endTrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:background="@color/wight"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="نهاية الرحلة"
+            android:textColor="@color/black"
+            android:padding="8dp"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" سعر الرحلة: "
+            android:textColor="@color/black"
+            android:padding="8dp"
+            android:id="@+id/tripPrice"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="وقت الرحلة: "
+            android:textColor="@color/black"
+            android:id="@+id/tripTime"
+            android:padding="8dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="المسافة المقطوعه: "
+            android:textColor="@color/black"
+            android:id="@+id/tripDistance"
+            android:padding="8dp"
+            />
+
+        <Button
+            android:id="@+id/endTripBtn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:background="@drawable/signup_button_back"
+            android:text="خروج"
+            android:paddingRight="60dp"
+            android:paddingLeft="60dp"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="?android:colorAccent"
+        android:indeterminateTintMode="src_in"
+        android:visibility="gone" />
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/wight_dark"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:layoutDirection="ltr"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/left_back"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:src="@drawable/account" />
+
+
+    <TextView
+        android:id="@+id/userNameNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_gravity="center"
+        android:paddingRight= "7dp"
+        android:paddingLeft="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/gray_text"
+        android:textSize="18sp" />
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/custom_marker_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/marker_back">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/map_marker_custom"/>
+
+    <TextView
+        android:id="@+id/ivHostImage"
+        android:layout_width="30dp"
+        android:gravity="center"
+        android:layout_height="30dp"
+        android:textColor="@color/black"
+        android:background="@drawable/marker_b"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:text=""/>
+
+</FrameLayout>

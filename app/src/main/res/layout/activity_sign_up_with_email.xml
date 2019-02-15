@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back1"
+    android:layoutDirection="ltr">
+
+    <!--<view-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="#40000000"/>-->
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#90000000"
+        android:layoutDirection="ltr"
+        android:orientation="vertical">
+
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/parent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="40dp"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:src="@drawable/tito_logo" />
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:id="@+id/nameET"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/signup_mail_back"
+                    android:drawableRight="@drawable/ic_person_outline_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="اسم المستخدم"
+                    android:inputType="text"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/gray_text"
+                    android:textColorHint="@color/gray_text"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/signup_mail_back"
+                    android:drawableRight="@drawable/email_outline"
+                    android:drawablePadding="10dp"
+                    android:hint="الايميل"
+
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/gray_text"
+                    android:textColorHint="@color/gray_text"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".1dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@color/marker_color" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:id="@+id/passwordET"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/signup_mail_back"
+                    android:drawableRight="@drawable/lock_outline"
+                    android:drawablePadding="10dp"
+                    android:hint="الرقم السري"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/gray_text"
+                    android:textColorHint="@color/gray_text"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:id="@+id/phoneET"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/signup_mail_back"
+                    android:drawableRight="@drawable/ic_phone_android_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="رقم الهاتف"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:gravity="right|center"
+                    android:textColor="@color/gray_text"
+                    android:textColorHint="@color/gray_text"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/signup_button_back"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="60dp"
+                    android:text="دخول"
+                    android:id="@+id/buttonSignUp"
+                    android:onClick="loginWithEmail"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="#FFF"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="forgot password?"
+                    android:textColor="@color/wight_dark"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="?android:colorAccent"
+        android:indeterminateTintMode="src_in"
+        android:visibility="gone" />
+
+</FrameLayout>
