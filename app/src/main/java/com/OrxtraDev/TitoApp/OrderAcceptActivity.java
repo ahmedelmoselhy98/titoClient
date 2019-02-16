@@ -1,6 +1,7 @@
 package com.OrxtraDev.TitoApp;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -28,6 +29,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -94,6 +96,11 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
     TextView tripDistance;
 
 
+    @BindView(R.id.orderRating)
+    RatingBar orderRating;
+
+
+
 
     private static final String TAG = "google";
     private GoogleMap mMap;
@@ -151,6 +158,13 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
         loading.setVisibility(View.VISIBLE);
         orderStatus = "";
 
+
+        orderRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(OrderAcceptActivity.this, "rate: "+orderRating.getRating(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -473,7 +487,7 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
 
     @Override
     public void onMyLocationClick(@NonNull Location location) {
-        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
         float zoomLevel = (float) 14.0;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), zoomLevel));
     }

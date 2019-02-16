@@ -230,6 +230,26 @@
             android:padding="8dp"
             />
 
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:layout_margin="16dp"
+            android:id="@+id/orderRating"
+            android:isIndicator="true"
+            android:focusable="true"
+            android:clickable="true"
+            style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="تعليق عن الرحلة"
+            android:id="@+id/orderFeedback"
+            />
         <Button
             android:id="@+id/endTripBtn"
             android:layout_width="match_parent"
@@ -255,6 +275,7 @@
         android:indeterminateTint="?android:colorAccent"
         android:indeterminateTintMode="src_in"
         android:visibility="gone" />
+
 
 
 </android.support.design.widget.CoordinatorLayout>

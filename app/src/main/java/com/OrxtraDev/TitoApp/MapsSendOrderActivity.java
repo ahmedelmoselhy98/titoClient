@@ -139,6 +139,7 @@ ProgressDialog progressDialog;
         progressDialog.show();
 
 
+
         firstzoom = 1;
         clang =0;
         clat=0;
@@ -405,8 +406,8 @@ ProgressDialog progressDialog;
         order.setStartTime("");
 
         order.setTime(System.currentTimeMillis()+"");
-        order.setToLang("31.138000488281254");
-        order.setToLat("30.543338954230222");
+        order.setToLang(""+tolang);
+        order.setToLat(""+tolat);
 
 
 

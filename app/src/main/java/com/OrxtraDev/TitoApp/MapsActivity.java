@@ -155,6 +155,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         progressDialog.setMessage("جاري تحديد الموقع...");
         progressDialog.show();
 
+
         firstzoom = 0;
 
         clang =0;
@@ -361,7 +362,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
 
     @Override
     public void onMyLocationClick(@NonNull Location location) {
-        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
         float zoomLevel = (float) 14.0;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), zoomLevel));
     }
