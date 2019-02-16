@@ -18,8 +18,9 @@
 
 
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
-    <string name="share_app">Share App</string>
+    <!--<string name="share_app">Share App</string>-->
     <string name="rate_on_playstore">Rate us on play store</string>
+    <string name="share_app">Share App</string>
 
 
 </resources>

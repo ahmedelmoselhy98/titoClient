@@ -2,6 +2,7 @@ package com.OrxtraDev.TitoApp;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -33,6 +34,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.OrxtraDev.TitoApp.model.RatingOrderModel;
 import com.bumptech.glide.Glide;
 import com.directions.route.Route;
 import com.directions.route.RouteException;
@@ -47,6 +49,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -57,17 +61,23 @@ import com.google.firebase.database.ValueEventListener;
 import com.OrxtraDev.TitoApp.model.DriverModel;
 import com.OrxtraDev.TitoApp.model.OrderModel;
 import com.OrxtraDev.TitoApp.util.PermissionUtils;
+import com.stepstone.apprating.AppRatingDialog;
+import com.stepstone.apprating.listener.RatingDialogListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.OrxtraDev.TitoApp.R.id.map;
+import static com.OrxtraDev.TitoApp.R.id.ratingBar;
 
 
-public class OrderAcceptActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
+public class OrderAcceptActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, RatingDialogListener {
 
 
     //init the views
@@ -96,8 +106,8 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
     TextView tripDistance;
 
 
-    @BindView(R.id.orderRating)
-    RatingBar orderRating;
+    @BindView(R.id.ratingBar)
+    Button orderRating;
 
 
 
@@ -114,6 +124,10 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
     //firebase
     private FirebaseAuth mAuth;
     private FirebaseUser mFirebaseUser;
+
+    private RatingOrderModel ratingOrderModel;
+
+    OrderModel order;
 
     int firstzoom;
 
@@ -159,12 +173,8 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
         orderStatus = "";
 
 
-        orderRating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(OrderAcceptActivity.this, "rate: "+orderRating.getRating(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        ratingOrderModel =  new RatingOrderModel();
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -195,7 +205,8 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
 
 //                loading.setVisibility(View.GONE);
 
-                OrderModel order = dataSnapshot.getValue(OrderModel.class);
+
+                order = dataSnapshot.getValue(OrderModel.class);
 
                 if (order == null)
                     return;
@@ -322,8 +333,16 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
                     tripPrice.setText("سعر الرحلة: "+order.getTripPrice()+" جنية ");
                     tripTime.setText("وقت الرحلة: "+order.getTripTime()+" دقيقة ");
                     tripDistance.setText("المسافة المقطوعة: "+order.getTripDistance()+" كيلومتر ");
-
                     endTrip.setVisibility(View.VISIBLE);
+
+                    orderRating.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            showRatingDialog();
+                        }
+                    });
+
+
                 }
 
 
@@ -578,9 +597,80 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
     }
 
 
+    private void showRatingDialog() {
+        new AppRatingDialog.Builder()
+                .setPositiveButtonText("ارسال")
+                .setNegativeButtonText("الفاء")
+                .setNoteDescriptions(Arrays.asList("سيئ جدا", "سيئ", "مقبول", "جيد جدا", "ممتاز !!!"))
+                .setDefaultRating(1)
+                .setTitle("تقييم هذة الرحلة")
+//                .setDescription("Please select some stars and give your feedback")
+                .setStarColor(R.color.colorPrimaryDark)
+                .setNoteDescriptionTextColor(R.color.black)
+                .setTitleTextColor(R.color.colorPrimary)
+                .setDescriptionTextColor(R.color.colorPrimary)
+                .setHint("Please write your comment here ...")
+                .setHintTextColor(R.color.black)
+                .setCommentTextColor(R.color.black)
+                .setCommentBackgroundColor(R.color.colorPrimaryDark)
+//                .setWindowAnimation(R.style.MyDialogFadeAnimation)
+                .create(OrderAcceptActivity.this)
+
+                .show();
+    }
 
     @OnClick(R.id.endTripBtn)void endTripBtn(){
         finish();
+    }
+
+    @Override
+    public void onNegativeButtonClicked() {
+
+    }
+
+    @Override
+    public void onNeutralButtonClicked() {
+
+    }
+
+    @Override
+    public void onPositiveButtonClicked(int i, @NotNull String s) {
+
+
+        ratingOrderModel.setFeedback(s);
+        ratingOrderModel.setRate(i);
+        ratingOrderModel.setDriverId(order.getDriverId());
+        ratingOrderModel.setUserId(order.getUserId());
+        ratingOrderModel.setOrderId(order.getId());
+
+
+        final ProgressDialog p =  new ProgressDialog(OrderAcceptActivity.this);
+        p.setMessage("تحميل...");
+        p.show();
+        p.setCancelable(false);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Ratings");
+        String id = databaseReference.push().getKey();
+        ratingOrderModel.setId(id);
+        databaseReference.child(id).setValue(ratingOrderModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                if (task.isSuccessful()){
+                    p.dismiss();
+                    finish();
+                    Toast.makeText(OrderAcceptActivity.this, "تم بنجاح", Toast.LENGTH_SHORT).show();
+                }else {
+                    p.dismiss();
+                    Toast.makeText(OrderAcceptActivity.this, "فشل", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
+
+
     }
 }
 

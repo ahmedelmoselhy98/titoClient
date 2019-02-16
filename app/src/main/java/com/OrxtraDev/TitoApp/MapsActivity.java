@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.OrxtraDev.TitoApp.activity.AboutUsActivity;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -64,32 +65,39 @@ import static com.OrxtraDev.TitoApp.R.id.map;
 
 
 public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLocationButtonClickListener,
-        OnMapReadyCallback  , ActivityCompat.OnRequestPermissionsResultCallback ,
-        NavigationView.OnNavigationItemSelectedListener ,View.OnClickListener ,
-        GoogleApiClient.OnConnectionFailedListener ,  GoogleMap.OnMyLocationClickListener{
-
+        OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback,
+        NavigationView.OnNavigationItemSelectedListener, View.OnClickListener,
+        GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMyLocationClickListener {
 
 
     //to init the views
-    @BindView(R.id.cate1TV)TextView cate1;
-    @BindView(R.id.cate2TV)TextView cate2;
-    @BindView(R.id.cate3TV)TextView cate3;
-    @BindView(R.id.cate4TV)TextView cate4;
-    @BindView(R.id.cate5TV)TextView cate5;
+    @BindView(R.id.cate1TV)
+    TextView cate1;
+    @BindView(R.id.cate2TV)
+    TextView cate2;
+    @BindView(R.id.cate3TV)
+    TextView cate3;
+    @BindView(R.id.cate4TV)
+    TextView cate4;
+    @BindView(R.id.cate5TV)
+    TextView cate5;
 
-    @BindView(R.id.cate1V)View v1;
-    @BindView(R.id.cate2V)View v2;
-    @BindView(R.id.cate3V)View v3;
-    @BindView(R.id.cate4V)View v4;
-    @BindView(R.id.cate5V)View v5;
-    @BindView(R.id.locationTV)TextView locationTV;
-
-
+    @BindView(R.id.cate1V)
+    View v1;
+    @BindView(R.id.cate2V)
+    View v2;
+    @BindView(R.id.cate3V)
+    View v3;
+    @BindView(R.id.cate4V)
+    View v4;
+    @BindView(R.id.cate5V)
+    View v5;
+    @BindView(R.id.locationTV)
+    TextView locationTV;
 
 
     //location api
     int PLACE_AUTOCOMPLETE_REQUEST_CODE = 3;
-
 
 
     private static final String TAG = "google";
@@ -107,7 +115,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private DatabaseReference df;
-    private DatabaseReference mFirebaseDatabaseReference ;
+    private DatabaseReference mFirebaseDatabaseReference;
 
     //google sign in log out
     //google sign in
@@ -120,9 +128,8 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
     String whereToGo;
 
 
-
-    double clat,clang;
-    double tolat,tolang;
+    double clat, clang;
+    double tolat, tolang;
 
 
     /**
@@ -141,7 +148,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
     int firstzoom;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,10 +164,10 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
 
         firstzoom = 0;
 
-        clang =0;
-        clat=0;
-        tolang=0;
-        tolat=0;
+        clang = 0;
+        clat = 0;
+        tolang = 0;
+        tolat = 0;
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
@@ -182,7 +188,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
                 User user = dataSnapshot.getValue(User.class);
 
                 assert user != null;
-                if (user.getPhone()==null){
+                if (user.getPhone() == null) {
                     Intent i = new Intent(MapsActivity.this, PhoneActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(i);
@@ -206,7 +212,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         initViews();
 
 
-
         //google sign in logout
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -225,7 +230,8 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
     /**
      * to select the location to where to go the destetation
      */
-    @OnClick(R.id.locationTV)void wheretogo(){
+    @OnClick(R.id.locationTV)
+    void wheretogo() {
         try {
             AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
                     .setCountry("EG")
@@ -236,9 +242,9 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
                             .build(MapsActivity.this);
             startActivityForResult(intent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
         } catch (GooglePlayServicesRepairableException e) {
-            Log.e(TAG,"Picker1:"+e.getMessage());
+            Log.e(TAG, "Picker1:" + e.getMessage());
         } catch (GooglePlayServicesNotAvailableException e) {
-            Log.e(TAG,"Picker2:"+e.getMessage());
+            Log.e(TAG, "Picker2:" + e.getMessage());
         }
     }
 
@@ -316,13 +322,13 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             public void onMyLocationChange(Location arg0) {
                 // TODO Auto-generated method stub
 
-                clat =  arg0.getLatitude();
+                clat = arg0.getLatitude();
                 clang = arg0.getLongitude();
 //                mMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("It's Me!"));
                 float zoomLevel = (float) 15.0;
-                if (firstzoom==0) {
-                   firstzoom=1;
-                   progressDialog.dismiss();
+                if (firstzoom == 0) {
+                    firstzoom = 1;
+                    progressDialog.dismiss();
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(arg0.getLatitude(), arg0.getLongitude()), zoomLevel));
                 }
 
@@ -393,6 +399,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             mPermissionDenied = false;
         }
     }
+
     /**
      * Displays a dialog with error message explaining that the location permission is missing.
      */
@@ -403,7 +410,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
 
 
     //here we begin to inti the views
-    private void initViews(){
+    private void initViews() {
 
 
         mDrawer = findViewById(R.id.nvView);
@@ -414,8 +421,8 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
 
         //to get username and image in left menu
         View hView = mDrawer.getHeaderView(0);
-        final TextView nav_user =  hView.findViewById(R.id.userNameNav);
-        final ImageView nav_image =  hView.findViewById(R.id.image);
+        final TextView nav_user = hView.findViewById(R.id.userNameNav);
+        final ImageView nav_image = hView.findViewById(R.id.image);
 
         mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(mFirebaseUser.getUid());
         ValueEventListener postListener = new ValueEventListener() {
@@ -463,7 +470,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
                 mDrawerLayout.closeDrawer(GravityCompat.START);
 
                 //to remove the token from the backend if he is not login
-                DatabaseReference ref =    FirebaseDatabase.getInstance().getReference().child("Tokens");
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Tokens");
                 ref.child(mFirebaseUser.getUid()).child("token").setValue("");
 
                 Intent i = new Intent(MapsActivity.this, LoginActivity.class);
@@ -484,20 +491,20 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
                                 }
                             });
                 break;
-//            case R.id.profile_lm:
-//                mDrawerLayout.closeDrawer(GravityCompat.START);
-//                startActivity(new Intent(TreeActivity.this, ProfileActivity.class));
-//                break;
+            case R.id.about_lm:
+                startActivity(new Intent(this, AboutUsActivity.class));
+                break;
         }
 
     }
 
     /**
      * go to detail activity
+     *
      * @param view the view from the xml
      */
     public void FromAction(View view) {
-        Intent i = new Intent(MapsActivity.this,MapsSendOrderActivity.class);
+        Intent i = new Intent(MapsActivity.this, MapsSendOrderActivity.class);
 
         passData passData = new passData();
 
@@ -507,7 +514,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         passData.setTolat(tolat);
         passData.setTolang(tolang);
 
-        i.putExtra("data",passData);
+        i.putExtra("data", passData);
 
         startActivity(i);
     }
@@ -525,6 +532,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         itemSelection(mSelectedId);
         return true;
     }
+
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
@@ -543,7 +551,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
     /**
      * here to action the select the specific category
      */
-    private void selectCateg(){
+    private void selectCateg() {
         cate1.setOnClickListener(this);
         cate2.setOnClickListener(this);
         cate3.setOnClickListener(this);
@@ -557,7 +565,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
     public void onClick(View view) {
 
 
-        if (view.getId()==R.id.cate1TV){
+        if (view.getId() == R.id.cate1TV) {
             cate1.setTextColor(getResources().getColor(R.color.black));
 
             cate2.setTextColor(getResources().getColor(R.color.gray_text));
@@ -573,7 +581,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             v3.setVisibility(View.GONE);
             v4.setVisibility(View.GONE);
             v5.setVisibility(View.GONE);
-        }else  if (view.getId()==R.id.cate2TV){
+        } else if (view.getId() == R.id.cate2TV) {
 
 
             cate2.setTextColor(getResources().getColor(R.color.black));
@@ -591,7 +599,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             v4.setVisibility(View.GONE);
             v5.setVisibility(View.GONE);
 
-        }else  if (view.getId()==R.id.cate3TV){
+        } else if (view.getId() == R.id.cate3TV) {
 
 
             cate3.setTextColor(getResources().getColor(R.color.black));
@@ -609,7 +617,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             v4.setVisibility(View.GONE);
             v5.setVisibility(View.GONE);
 
-        }else  if (view.getId()==R.id.cate4TV){
+        } else if (view.getId() == R.id.cate4TV) {
 
             cate4.setTextColor(getResources().getColor(R.color.black));
 
@@ -627,7 +635,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             v1.setVisibility(View.GONE);
             v5.setVisibility(View.GONE);
 
-        }else  if (view.getId()==R.id.cate5TV){
+        } else if (view.getId() == R.id.cate5TV) {
 
 
             cate5.setTextColor(getResources().getColor(R.color.black));
@@ -646,7 +654,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             v1.setVisibility(View.GONE);
         }
     }
-
 
 
 }

@@ -5,6 +5,9 @@
     android:layout_height="match_parent">
 
 
+
+
+
     <include layout="@layout/activity_maps" />
 
     <FrameLayout
@@ -231,25 +234,22 @@
             />
 
 
-        <RatingBar
+        <Button
+            android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:layout_margin="16dp"
-            android:id="@+id/orderRating"
-            android:isIndicator="true"
-            android:focusable="true"
-            android:clickable="true"
-            style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
-            />
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:background="@drawable/button_background_1"
+            android:text="تقييم الرحلة"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:layout_margin="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"/>
 
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="تعليق عن الرحلة"
-            android:id="@+id/orderFeedback"
-            />
         <Button
             android:id="@+id/endTripBtn"
             android:layout_width="match_parent"

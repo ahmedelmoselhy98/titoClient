@@ -135,7 +135,6 @@
                     android:paddingRight="60dp"
                     android:text="دخول"
                     android:id="@+id/buttonSignUp"
-                    android:onClick="loginWithEmail"
                     android:textStyle="bold"
                     android:textAllCaps="true"
                     android:textColor="#FFF"

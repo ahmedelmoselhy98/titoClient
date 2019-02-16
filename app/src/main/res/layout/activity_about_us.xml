@@ -22,6 +22,7 @@
             android:padding="5dp">
 
             <TextView
+                android:id="@+id/shareParent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/about_text_tv"
@@ -64,9 +65,9 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:text="about us write any thing her ya hazzzzem"
+            android:text="Tito هو تطبيق مشاركة ركوب السيارات السريع والموثوق في غضون دقائق - ليلاً أو نهارًا. ليس هناك حاجة لركن أو انتظار سيارة أجرة أو حافلة. باستخدام Tito ، ما عليك سوى النقر لطلب رحلة ، ومن السهل الدفع باستخدام رصيد أو نقد في مدن محددة."
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/wight"
             android:textSize="12dp" />
 
 

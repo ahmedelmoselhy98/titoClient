@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:background="@color/wight_dark"
@@ -18,7 +19,8 @@
         android:background="@drawable/left_back"
         android:layout_gravity="center"
         android:padding="20dp"
-        android:src="@drawable/account" />
+        android:src="@drawable/account"
+        tools:ignore="VectorDrawableCompat" />
 
 
     <TextView

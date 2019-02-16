@@ -48,7 +48,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
 
     implementation 'com.google.firebase:firebase-storage:11.8.0'
-
+    implementation 'com.stepstone.apprating:app-rating:2.2.0'
     implementation 'com.firebase:geofire-android:2.3.0'
 
 
