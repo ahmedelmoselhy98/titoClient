@@ -609,13 +609,12 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
                 .setNoteDescriptionTextColor(R.color.black)
                 .setTitleTextColor(R.color.colorPrimary)
                 .setDescriptionTextColor(R.color.colorPrimary)
-                .setHint("Please write your comment here ...")
+                .setHint("من فضلت اكتب تعليقك هنا...")
                 .setHintTextColor(R.color.black)
                 .setCommentTextColor(R.color.black)
                 .setCommentBackgroundColor(R.color.colorPrimaryDark)
 //                .setWindowAnimation(R.style.MyDialogFadeAnimation)
                 .create(OrderAcceptActivity.this)
-
                 .show();
     }
 

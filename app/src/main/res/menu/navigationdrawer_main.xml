@@ -4,7 +4,7 @@
       tools:context="nkdroid.tutorial.navigationview.MainActivity">
     <group android:checkableBehavior="single">
 
-<!--
+
         <item
             android:title="Payment"
             android:icon="@drawable/credit_card"/>
@@ -13,7 +13,7 @@
             android:icon="@drawable/history"/>
         <item
             android:title="Setting"
-            android:icon="@drawable/settings"/>-->
+            android:icon="@drawable/settings"/>
         <item
             android:id="@+id/about_lm"
             android:title="About"

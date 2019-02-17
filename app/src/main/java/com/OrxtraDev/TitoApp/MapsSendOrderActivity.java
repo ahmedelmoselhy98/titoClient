@@ -137,6 +137,8 @@ ProgressDialog progressDialog;
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("انتظار...");
         progressDialog.show();
+        progressDialog.setCancelable(false);
+
 
 
 

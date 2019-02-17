@@ -160,6 +160,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("جاري تحديد الموقع...");
         progressDialog.show();
+        progressDialog.setCancelable(false);
 
 
         firstzoom = 0;
