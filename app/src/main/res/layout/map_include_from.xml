@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:text="cancel"
             android:gravity="center"
+            android:id="@+id/cancelTV"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"

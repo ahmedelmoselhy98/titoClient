@@ -783,6 +783,18 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
                 Looper.myLooper());
     }
 
+
+    @OnClick(R.id.cancelTV)void cancelTV(){
+
+
+        DatabaseReference dfUpdateOrder = FirebaseDatabase.getInstance().getReference();
+
+        dfUpdateOrder.child("Orders")
+                .child(orderId).child("status").setValue("-1");
+
+        finish();
+    }
+
 }
 
 
