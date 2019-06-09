@@ -1,38 +1,59 @@
 package com.OrxtraDev.TitoApp.model;
 
+import java.io.Serializable;
+
 /**
  * Created by hazemhabeb on 7/1/18.
  */
 
-public class OrderModel {
+public class OrderModel implements Serializable {
 
-    private String id;
-    private String userId;
-    private String driverId;
-    private String catag;
+    private String id = "";
+    private String userId = "";
+    private String driverId = "";
+    private String catag = "";
 
-    //0 is pending 1 is accepted -1 is canceled 2 is finished
-    private String status="0";
+    //0 is pending 1 is accepted -1 is canceled 4 is finished
+    private String status = "";
 
-    private String  lat="";
-    private String lang="";
+    private String lat = "";
+    private String lang = "";
 
 
-    private String endTime="";
-    private String startTime="";
+    private String endTime = "";
+    private String startTime = "";
 
-    private String time="";
-    private String toLang="";
-    private String toLat="";
+    private String time = "";
+    private String toLang = "";
+    private String toLat = "";
 
-    private String tripDistance="";
-    private String tripPrice="";
-    private String  tripTime="";
+    private String cAddress = "";
+    private String toAddress = "";
+
+
+    private String tripDistance = "";
+    private String tripPrice = "";
+    private String tripTime = "";
 
 
     public OrderModel() {
     }
 
+    public String getcAddress() {
+        return cAddress;
+    }
+
+    public void setcAddress(String cAddress) {
+        this.cAddress = cAddress;
+    }
+
+    public String getToAddress() {
+        return toAddress;
+    }
+
+    public void setToAddress(String toAddress) {
+        this.toAddress = toAddress;
+    }
 
     public String getId() {
         return id;

@@ -37,8 +37,6 @@ public class PhoneActivity extends AppCompatActivity {
 //                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-
-
         mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();

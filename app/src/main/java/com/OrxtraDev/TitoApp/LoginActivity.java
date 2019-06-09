@@ -3,11 +3,15 @@ package com.OrxtraDev.TitoApp;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -15,7 +19,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.OrxtraDev.TitoApp.activity.PhoneActivity;
 import com.OrxtraDev.TitoApp.activity.SignUpWithEmail;
+import com.OrxtraDev.TitoApp.model.User;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -42,14 +48,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.OrxtraDev.TitoApp.activity.PhoneActivity;
-import com.OrxtraDev.TitoApp.model.User;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements
+public class  LoginActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener {
 
 
@@ -102,7 +109,7 @@ public class LoginActivity extends AppCompatActivity implements
 
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("انتظر...");
+        progressDialog.setMessage("انتظار...");
 
         //google sign in
         // [START config_signin]
@@ -117,6 +124,21 @@ public class LoginActivity extends AppCompatActivity implements
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo("com.OrxtraDev.TitoApp", PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String hashCode  = Base64.encodeToString(md.digest(), Base64.DEFAULT);
+                System.out.println("Print the hashKey for Facebook :"+hashCode);
+                Log.e("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -282,7 +304,7 @@ public class LoginActivity extends AppCompatActivity implements
                         ref.child(user.getUid()).child("token").setValue(token);
 
 
-                        Intent i = new Intent(LoginActivity.this, MapsActivity.class);
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent
                                 .FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(i);
@@ -369,7 +391,7 @@ public class LoginActivity extends AppCompatActivity implements
 
                         }else {
                             progressDialog.dismiss();
-                            Log.w(TAG, "LoginWithEmail:failure", task.getException());
+                            Log.e(TAG, "LoginWithEmail:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "حدث خطاء حاول مرة اخرى.",
                                     Toast.LENGTH_SHORT).show();
                         }
@@ -396,4 +418,8 @@ public class LoginActivity extends AppCompatActivity implements
         i.setData(Uri.parse(url));
         startActivity(i);
     }
+
+
+
+
 }

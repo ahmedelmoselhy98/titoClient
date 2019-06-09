@@ -40,25 +40,26 @@
                    android:layout_height="80dp"
                    android:layout_marginTop="?actionBarSize"
                    android:src="@drawable/smartphone"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Verify Your Number"
                     android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="Confirm phone number"
                     android:textColor="@color/wight_dark"
                     android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:paddingRight="60dp"
-                    android:paddingLeft="60dp"
                     android:gravity="center"
-                    android:text="please enter your mobile number to receive a verification code "
+                    android:paddingLeft="60dp"
+                    android:paddingRight="60dp"
+                    android:text="Please enter your phone number to receive confirmation code"
                     android:textColor="@color/wight_dark"
                     android:textSize="14sp" />
 
@@ -92,29 +93,31 @@
                         android:layout_height="40dp"
                         android:background="@drawable/signup_mail_back"
                         android:drawablePadding="10dp"
-                        android:hint="1014722323"
+                        android:hint="@string/phone_number"
                         android:inputType="phone"
                         android:paddingLeft="10dp"
+                        android:maxLength="10"
                         android:paddingRight="10dp"
                         android:textColor="@color/gray_text"
                         android:textColorHint="@color/gray_text"
                         android:textSize="18sp" />
                 </LinearLayout>
+
                 <Button
                     android:id="@+id/phoneBtn"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/signup_button_back"
-                    android:text="CONTINUE"
-                    android:paddingRight="60dp"
-                    android:layout_marginTop="30dp"
-                    android:paddingLeft="30dp"
                     android:layout_marginLeft="40dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="40dp"
+                    android:background="@drawable/signup_button_back"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="60dp"
+                    android:text="@string/continuee"
                     android:textAllCaps="true"
                     android:textColor="#FFF"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
 
             </LinearLayout>

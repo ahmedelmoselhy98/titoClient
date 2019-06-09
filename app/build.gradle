@@ -6,8 +6,8 @@ android {
         applicationId "com.OrxtraDev.TitoApp"
         minSdkVersion 17
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -21,6 +21,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     testImplementation 'junit:junit:4.12'
@@ -56,5 +57,11 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     implementation 'com.github.jd-alexander:library:1.1.0'
+
+
+    implementation 'com.github.javiersantos:BottomDialogs:1.2.1'
+    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
+
+
 }
 apply plugin: 'com.google.gms.google-services'

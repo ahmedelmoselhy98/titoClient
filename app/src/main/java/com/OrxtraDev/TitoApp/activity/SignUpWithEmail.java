@@ -2,16 +2,15 @@ package com.OrxtraDev.TitoApp.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.OrxtraDev.TitoApp.LoginActivity;
-import com.OrxtraDev.TitoApp.MapsActivity;
+import com.OrxtraDev.TitoApp.MainActivity;
 import com.OrxtraDev.TitoApp.R;
 import com.OrxtraDev.TitoApp.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -97,7 +96,7 @@ public class SignUpWithEmail extends AppCompatActivity {
                                 refUser.child(userID).setValue(user);
 
                                 progressDialog.dismiss();
-                                Intent i = new Intent(SignUpWithEmail.this, MapsActivity.class);
+                                Intent i = new Intent(SignUpWithEmail.this, MainActivity.class);
                                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent
                                         .FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(i);

@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">تيتو</string>
+
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyDCRPQbPfAo9dAWVKIOIQ3jKYHLf68oF_g
+    </string>
+
+    <string name="google_api_key_place">AIzaSyD9USz9ImY8CDztHU-XMjkHCTmkU9m92r4</string>
+
+
+    <!--<string name="facebook_app_id">634438600330690</string>-->
+    <!--<string name="fb_login_protocol_scheme">fb634438600330690</string>-->
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <!--<string name="share_app">Share App</string>-->
+    <string name="rate_on_playstore">قم بتقييمنا على play store</string>
+    <string name="share_app">مشاركة التطبيق</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="naqel_app_for_delivering_orders">تطبيق تيتو لتوصيل الطلبات</string>
+    <string name="email">الايميل</string>
+    <string name="password">كلمة المرور</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="new_account">مستخدم جديد</string>
+    <string name="facebook">فيسبوك</string>
+    <string name="trip_detail">تفاصيل الرحلة</string>
+    <string name="continuee">متابعه</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="register">تسجيل</string>
+    <string name="wallet">المحفظة</string>
+    <string name="order_now">اطلب الان</string>
+    <string name="order_later">طلب لاحقا</string>
+    <string name="my_trips">رحلاتى</string>
+    <string name="contact_us">تواصل معنا</string>
+    <string name="about_us">عن التطبيق</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="no_data">لا توجد بيانات</string>
+    <string name="cash">كاش</string>
+    <string name="there_is_now_in_your_wallet">هذا ما يوجد فى محفظتك الان</string>
+    <string name="where_do_you_want_to_go">اين تريد الذهاب ؟</string>
+    <string name="choose_starting_point_location">اختار نقطة البداية (موقعى)</string>
+    <string name="tariff_estimation">تقدير التعريفة</string>
+    <string name="order_confirm">تاكيد الطلب</string>
+    <string name="change_password_tv">تغيير كلمة المرور</string>
+    <string name="english">انجليزى</string>
+    <string name="arabic">لغة عربية</string>
+    <string name="language">اللغة</string>
+    <string name="me">أنا</string>
+    <string name="my_orders">طلباتى</string>
+    <string name="home">الرئسية</string>
+    <string name="getting_location">جاري تحديد الموقع...</string>
+    <string name="loading">تحميل...</string>
+    <string name="success">تم بنجاح</string>
+    <string name="fail">فشل</string>
+    <string name="trip_price">سعر الرحلة:</string>
+    <string name="pound">جنية</string>
+    <string name="trip_time">وقت الرحلة:</string>
+    <string name="trip_distance">المسافة المقطوعة:</string>
+    <string name="kilometer">كيلومتر</string>
+    <string name="minute">دقيقة</string>
+    <string name="trip_start">الرحلة بدات</string>
+    <string name="wait">انتظار...</string>
+    <string name="cancel">الغاء</string>
+    <string name="search_driver">جاري البحث عن سائق</string>
+    <string name="exit">خروج</string>
+    <string name="rate_trip">تقييم الرحلة</string>
+    <string name="trip_end">نهاية الرحلة</string>
+    <string name="call_dirver">الاتصال بالسائق</string>
+
+
+</resources>

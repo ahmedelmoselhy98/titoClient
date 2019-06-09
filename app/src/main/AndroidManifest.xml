@@ -9,17 +9,26 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher_web"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
 
-        <activity android:name=".activity.SignUpWithEmail" />
+        <activity android:name="com.OrxtraDev.TitoApp.activity.Splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.OrxtraDev.TitoApp.activity.ChangeLanguage"></activity>
+        <activity android:name="com.OrxtraDev.TitoApp.activity.WalletActivity" />
+<activity android:name="com.OrxtraDev.TitoApp.activity.OrderDetailActivity"></activity>
+        <activity android:name="com.OrxtraDev.TitoApp.MainActivity">
+        </activity>
+        <activity android:name="com.OrxtraDev.TitoApp.activity.SignUpWithEmail" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.OrxtraDev.TitoApp.LoginActivity"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,26 +37,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.PhoneActivity"
+            android:name="com.OrxtraDev.TitoApp.activity.PhoneActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".MapsActivity">
-            <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="@string/google_maps_key" />
+        <activity android:name="com.OrxtraDev.TitoApp.MapsActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!-- <meta-data -->
+            <!-- android:name="com.google.android.geo.API_KEY" -->
+            <!-- android:value="@string/google_maps_key" /> -->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
-        <activity android:name=".MapsSendOrderActivity" />
+        <activity android:name="com.OrxtraDev.TitoApp.MapsSendOrderActivity" />
         <activity
-            android:name=".OrderAcceptActivity"
+            android:name="com.OrxtraDev.TitoApp.OrderAcceptActivity"
             android:theme="@style/AppTheme.NoActionBar_driver" /> <!-- google map -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" /> <!-- //facebook -->
+            android:value="@string/google_api_key_place" /> <!-- //facebook -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -69,14 +78,14 @@
             </intent-filter>
         </activity> <!-- //notifaction -->
         <service
-            android:name=".notification.MyFirebaseMessagingService"
+            android:name="com.OrxtraDev.TitoApp.notification.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name=".notification.MyFirebaseInstanceIdService"
+            android:name="com.OrxtraDev.TitoApp.notification.MyFirebaseInstanceIdService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -87,7 +96,7 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
 
-        <activity android:name=".activity.AboutUsActivity"></activity>
+        <activity android:name="com.OrxtraDev.TitoApp.activity.AboutUsActivity" />
     </application>
 
 </manifest>

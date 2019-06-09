@@ -180,6 +180,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         startLocationUpdates();
 
 
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("جاري تحديد الموقع...");
         progressDialog.setCancelable(false);
@@ -284,6 +285,24 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
                 tolat = place.getLatLng().latitude;
                 tolang = place.getLatLng().longitude;
 
+
+
+
+                Intent i = new Intent(MapsActivity.this, MapsSendOrderActivity.class);
+
+                passData passData = new passData();
+
+                passData.setText(locationTV.getText().toString());
+                passData.setClat(clat);
+                passData.setClang(clang);
+                passData.setTolat(tolat);
+                passData.setTolang(tolang);
+
+                i.putExtra("data", passData);
+
+                startActivity(i);
+
+
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
                 Log.i("google", status.getStatusMessage());
@@ -336,28 +355,11 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         mMap.setOnMyLocationButtonClickListener(this);
         mMap.setOnMyLocationClickListener(this);
 
+        progressDialog.show();
 
         enableMyLocation();
 
-        mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
 
-            @Override
-            public void onMyLocationChange(Location arg0) {
-                // TODO Auto-generated method stub
-
-                clat = arg0.getLatitude();
-                clang = arg0.getLongitude();
-//                mMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("It's Me!"));
-                float zoomLevel = (float) 15.0;
-                if (firstzoom == 0) {
-                    firstzoom = 1;
-                    progressDialog.dismiss();
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(arg0.getLatitude(), arg0.getLongitude()), zoomLevel));
-                }
-
-
-            }
-        });
 
 
     }
@@ -373,7 +375,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
                     Manifest.permission.ACCESS_FINE_LOCATION, true);
         } else if (mMap != null) {
             // Access to the location has been granted to the app.
-            progressDialog.show();
+            progressDialog.dismiss();
             mMap.setMyLocationEnabled(true);
 
         }
@@ -625,9 +627,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
 
         } else if (view.getId() == R.id.cate3TV) {
 
-
             cate3.setTextColor(getResources().getColor(R.color.black));
-
             cate2.setTextColor(getResources().getColor(R.color.gray_text));
             cate1.setTextColor(getResources().getColor(R.color.gray_text));
             cate4.setTextColor(getResources().getColor(R.color.gray_text));

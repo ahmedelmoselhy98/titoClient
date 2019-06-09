@@ -1,35 +1,37 @@
 package com.OrxtraDev.TitoApp.model;
+
 /**
  * Created by hazemhabeb on 6/19/18.
  */
 
 public class DriverModel {
 
-    private String id;
-    private String fname;
-    private String lname;
-    private String email;
-    private String phone;
-    private String address;
-    private String profileImage;
-    private String idImage;
-    private String licenceImage;
+    private String id = "";
+    private String fname = "";
+    private String lname = "";
+    private String email = "";
+    private String phone = "";
+    private String address = "";
+    private String profileImage = "";
+    private String idImage = "";
+    private String licenceImage = "";
 
     //0 for new 1 for accepted 2 for refused 3 for blocked
-    private String status;
+    private String status = "1";
+
 
     //1 for online 0 for offline
-    private int available;
+    private String available = "0";
 
 
     public DriverModel() {
     }
 
-    public int getAvailable() {
+    public String getAvailable() {
         return available;
     }
 
-    public void setAvailable(int available) {
+    public void setAvailable(String available) {
         this.available = available;
     }
 

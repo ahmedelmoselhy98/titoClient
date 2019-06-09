@@ -6,21 +6,21 @@
 
 
         <item
-            android:title="Payment"
+            android:title="المحفظة"
             android:icon="@drawable/credit_card"/>
         <item
-            android:title="Your Trips"
+            android:title="رحلاتي"
             android:icon="@drawable/history"/>
         <item
-            android:title="Setting"
+            android:title="الاعدادات"
             android:icon="@drawable/settings"/>
         <item
             android:id="@+id/about_lm"
-            android:title="About"
+            android:title="عن الابلكيشن"
             android:icon="@drawable/alert_circle_outline"/>
         <item
             android:id="@+id/logout_lm"
-            android:title="Logout"
+            android:title="تسجيل الخروج"
             android:icon="@drawable/logout"/>
         <!--<item-->
             <!--android:title="Profile"-->

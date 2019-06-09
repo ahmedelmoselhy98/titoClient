@@ -1,15 +1,16 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Tito</string>
 
 
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
-        AIzaSyBVHgr4vi1pi5DRuQj8TjJxBPZ67DP4LSg
+        AIzaSyDCRPQbPfAo9dAWVKIOIQ3jKYHLf68oF_g
     </string>
 
+    <string name="google_api_key_place">AIzaSyD9USz9ImY8CDztHU-XMjkHCTmkU9m92r4</string>
 
-    <string name="facebook_app_id">259962221426140</string>
-    <string name="fb_login_protocol_scheme">fb259962221426140</string>
 
+    <string name="facebook_app_id" tools:ignore="MissingTranslation">1097633883758947</string>
+    <string name="fb_login_protocol_scheme" tools:ignore="MissingTranslation" translatable="false">fb1097633883758947</string>
 
     <!--    Permissions    -->
     <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
@@ -21,6 +22,59 @@
     <!--<string name="share_app">Share App</string>-->
     <string name="rate_on_playstore">Rate us on play store</string>
     <string name="share_app">Share App</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="naqel_app_for_delivering_orders">Tito app for delivering orders</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="new_account">New Account ?</string>
+    <string name="facebook">Facebook</string>
+    <string name="trip_detail">Trip Detail</string>
+    <string name="continuee">Continue</string>
+    <string name="user_name">User Name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="register">Register</string>
+    <string name="wallet">Wallet</string>
+    <string name="order_now">Order now</string>
+    <string name="order_later">Order later</string>
+    <string name="my_trips">My trips</string>
+    <string name="contact_us">Contact us</string>
+    <string name="about_us">About us</string>
+    <string name="logout">Logout</string>
+    <string name="no_data">No Data</string>
+    <string name="cash">Cash</string>
+    <string name="there_is_now_in_your_wallet">There is now in your wallet</string>
+    <string name="where_do_you_want_to_go">where do you want to go ?</string>
+    <string name="choose_starting_point_location">Choose starting point (location)</string>
+    <string name="tariff_estimation">Price estimation</string>
+    <string name="order_confirm">Order Confirm</string>
+    <string name="change_password_tv">Change password</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="language">Language</string>
+    <string name="me">Me</string>
+    <string name="my_orders">My Trips</string>
+    <string name="home">Home</string>
+    <string name="getting_location">Getting Location...</string>
+    <string name="loading">loading...</string>
+    <string name="success">Success</string>
+    <string name="fail">Failed</string>
+    <string name="trip_price">Trip Price:</string>
+    <string name="pound">EG</string>
+    <string name="trip_time">Trip Time:</string>
+    <string name="trip_distance">Trip Distance:</string>
+    <string name="kilometer">Kilometer</string>
+    <string name="minute">Minutes</string>
+    <string name="trip_start">Trip started</string>
+    <string name="wait">Wait...</string>
+    <string name="cancel">Cancel</string>
+    <string name="search_driver">Search for driver</string>
+    <string name="exit">Exit</string>
+    <string name="rate_trip">Trip Rate</string>
+    <string name="trip_end">Trip end</string>
+    <string name="call_dirver">Call driver</string>
 
 
 </resources>

@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#F8CA46</color>
     <color name="colorAccent">#7DC855</color>
 
+
+
     <!--here the login colors-->
     <color name="login_facebook">#4A6EA9</color>
     <color name="login_google">#E74C3C</color>
@@ -27,6 +29,9 @@
     <color name="yellow_star">#FFCB02</color>
 
 
+    <color name="back_categ">#f5e6a9</color>
+
+
 
     <color name="wight">#ffffff</color>
     <color name="wight_dark">#ececec</color>
@@ -42,5 +47,6 @@
 
     <color name="new_color_1">#235EA1</color>
     <color name="new_color_dark">#1b4e87</color>
+    <color name="blue">#011993</color>
 
 </resources>

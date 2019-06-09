@@ -2,7 +2,6 @@ package com.OrxtraDev.TitoApp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -33,16 +32,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.OrxtraDev.TitoApp.model.DriverModel;
+import com.OrxtraDev.TitoApp.model.OrderModel;
 import com.OrxtraDev.TitoApp.model.RatingOrderModel;
+import com.OrxtraDev.TitoApp.util.PermissionUtils;
+import com.OrxtraDev.TitoApp.util.SharedPrefDueDate;
 import com.bumptech.glide.Glide;
 import com.directions.route.Route;
 import com.directions.route.RouteException;
 import com.directions.route.Routing;
 import com.directions.route.RoutingListener;
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -71,9 +74,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.OrxtraDev.TitoApp.model.DriverModel;
-import com.OrxtraDev.TitoApp.model.OrderModel;
-import com.OrxtraDev.TitoApp.util.PermissionUtils;
 import com.stepstone.apprating.AppRatingDialog;
 import com.stepstone.apprating.listener.RatingDialogListener;
 
@@ -87,7 +87,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.OrxtraDev.TitoApp.R.id.map;
-import static com.OrxtraDev.TitoApp.R.id.ratingBar;
 
 
 public class OrderAcceptActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, RatingDialogListener {
@@ -101,6 +100,8 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
     TextView driverNameTV;
     @BindView(R.id.loading)
     ProgressBar loading;
+    @BindView(R.id.findDriverTV)TextView findDriverTV;
+    @BindView(R.id.spin_kit)SpinKitView load;
     @BindView(R.id.driverParent)
     LinearLayout driverParent;
     @BindView(R.id.endTrip)
@@ -109,7 +110,6 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
     Button callBtn;
     @BindView(R.id.endTripBtn)
     Button endTripBtn;
-
 
     @BindView(R.id.tripPrice)
     TextView tripPrice;
@@ -166,20 +166,21 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
 
     private String orderId;
     private String orderStatus;
-
+     private SharedPrefDueDate pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setStatusBarTranslucent(true);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            setStatusBarTranslucent(true);
+//        }
         setContentView(R.layout.map_include_from);
         ButterKnife.bind(this);
 
 
         startLocationUpdates();
 
+        pref = new SharedPrefDueDate(this);
 
         firstzoom = 1;
         orderId = getIntent().getStringExtra("order");
@@ -190,7 +191,9 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
 
 
         driverParent.setVisibility(View.GONE);
-        loading.setVisibility(View.VISIBLE);
+//        loading.setVisibility(View.VISIBLE);
+        findDriverTV.setVisibility(View.VISIBLE);
+        load.setVisibility(View.VISIBLE);
         orderStatus = "";
 
 
@@ -223,28 +226,20 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
 //                loading.setVisibility(View.GONE);
-
-
                 order = dataSnapshot.getValue(OrderModel.class);
-
                 if (order == null)
                     return;
-
                 Log.d("hazem", "here in the order " + order.getStatus());
-
+                Log.d("hazem", "here in the order " + order.getId());
 
                 if (order.getStatus().equals(orderStatus)) {
                     return;
                 }
-
-
                 if (orderStatus.equals("1")) {
                     if (order.getStatus().equals("0"))
                         return;
                 }
-
                 if (orderStatus.equals("2")) {
                     if (order.getStatus().equals("0"))
                         return;
@@ -260,32 +255,26 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
 //                    canceledParent.setVisibility(View.GONE);
                 } else if (orderStatus.equals("1")) {
 
-                    loading.setVisibility(View.GONE);
+                    pref.setOrderId(orderId);
+
+//                    loading.setVisibility(View.GONE);
+                    load.setVisibility(View.GONE);
+                    findDriverTV.setVisibility(View.GONE);
                     driverParent.setVisibility(View.VISIBLE);
-
-//                        startParent.setVisibility(View.VISIBLE);
-
-                    //show the user location on the map
-//                        CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(Double.parseDouble(order.getLat()),
-//                                Double.parseDouble(order.getLang())));
-//
-//                        CameraUpdate zoom = CameraUpdateFactory.zoomTo(16);
-//
-//                        mMap.moveCamera(center);
-//
-//
-//                        MarkerOptions marker1 = new MarkerOptions()
-//                                .position(new LatLng(Double.parseDouble(order.getLat()),
-//                                        Double.parseDouble(order.getLang())))
-//                                .icon(BitmapDescriptorFactory.fromBitmap(getMarkerBitmapFromView(userImageString)));
-//
-//                        mMap.addMarker(marker1);
 
 
                 } else if (orderStatus.equals("2")) {
 
-                    driverParent.setVisibility(View.GONE);
-                    Toast.makeText(OrderAcceptActivity.this,"Trip is starting",Toast.LENGTH_LONG).show();
+//                    driverParent.setVisibility(View.GONE);
+
+                    callBtn.setText(R.string.trip_start);
+                    callBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                        }
+                    });
+
 
 
 //                        orderParent.setVisibility(View.GONE);
@@ -344,16 +333,16 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
                                     }
                                 })
                                 .waypoints(start, waypoint, end)
-                                .key("AIzaSyBVHgr4vi1pi5DRuQj8TjJxBPZ67DP4LSg")
+                                .key("AIzaSyCniQdCmg-sONpZYVazSqyeu3BtkIz4veA")
                                 .build();
                         routing.execute();
 
                 }else if (orderStatus.equals("4")){
-
-
-                    tripPrice.setText("سعر الرحلة: "+order.getTripPrice()+" جنية ");
-                    tripTime.setText("وقت الرحلة: "+order.getTripTime()+" دقيقة ");
-                    tripDistance.setText("المسافة المقطوعة: "+order.getTripDistance()+" كيلومتر ");
+                    tripPrice.setText(getString(R.string.trip_price)+" "+order.getTripPrice()+" "+getString(R.string.pound));
+                    tripTime.setText(getString(R.string.trip_time)+" "+order.getTripTime()+" "+getString(R.string.minute));
+                    tripDistance.setText(getString(R.string.trip_distance)+" "+order.getTripDistance()+" "+getString(R.string.kilometer));
+                    driverParent.setVisibility(View.GONE);
+                    orderRating.setVisibility(View.GONE);
                     endTrip.setVisibility(View.VISIBLE);
 
                     orderRating.setOnClickListener(new View.OnClickListener() {
@@ -364,7 +353,19 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
                     });
 
 
+                }else if (orderStatus.equals("5")){
+
+                    pref.setOrderId("");
+//                    showRatingDialog();
+//                    orderRating.setVisibility(View.VISIBLE);
+//                    orderRating.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            showRatingDialog();
+//                        }
+//                    });
                 }
+
 
 
                 getUserData(order.getDriverId());
@@ -382,8 +383,10 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
 
     @OnClick(R.id.callBtn)
     void cancel() {
+        pref.setOrderId("");
         finish();
     }
+
 
     /**
      * here to get the data of the user who created the order
@@ -645,7 +648,7 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
 
     @Override
     public void onNegativeButtonClicked() {
-
+        finish();
     }
 
     @Override
@@ -665,7 +668,7 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
 
 
         final ProgressDialog p =  new ProgressDialog(OrderAcceptActivity.this);
-        p.setMessage("تحميل...");
+        p.setMessage(getString(R.string.loading));
         p.show();
         p.setCancelable(false);
 
@@ -679,10 +682,10 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
                 if (task.isSuccessful()){
                     p.dismiss();
                     finish();
-                    Toast.makeText(OrderAcceptActivity.this, "تم بنجاح", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OrderAcceptActivity.this, R.string.success, Toast.LENGTH_SHORT).show();
                 }else {
                     p.dismiss();
-                    Toast.makeText(OrderAcceptActivity.this, "فشل", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OrderAcceptActivity.this, R.string.fail, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -792,8 +795,14 @@ public class OrderAcceptActivity extends AppCompatActivity implements OnMapReady
         dfUpdateOrder.child("Orders")
                 .child(orderId).child("status").setValue("-1");
 
+        pref.setOrderId("");
+
         finish();
     }
+
+
+
+
 
 }
 

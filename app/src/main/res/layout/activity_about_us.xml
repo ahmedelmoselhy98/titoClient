@@ -1,62 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentStart="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/about_text_tv"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/shareParent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/about_text_tv"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="15dp"
-                android:layout_weight="1"
-                android:drawableEnd="?attr/actionModeShareDrawable"
-                android:drawablePadding="10dp"
-                android:drawableTint="@android:color/white"
-                android:gravity="center"
-                android:text="@string/share_app"
-                android:textColor="@android:color/white"
-                android:textSize="12dp" />
+    android:orientation="vertical"
+    android:background="@drawable/back3">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/about_text_tv"
-                android:layout_alignParentTop="false"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="15dp"
-                android:drawableEnd="@drawable/ic_thumb_up_black_24dp"
-                android:drawablePadding="10dp"
-                android:drawableTint="@android:color/white"
-                android:gravity="center"
-                android:text="@string/rate_on_playstore"
-                android:textColor="@android:color/white"
-                android:textSize="12dp" />
-        </LinearLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/tito_logo"
+        android:padding="15dp"
+        android:layout_gravity="center"
+        />
+
 
         <TextView
             android:id="@+id/about_text_tv"
@@ -65,21 +28,58 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:text="Tito هو تطبيق مشاركة ركوب السيارات السريع والموثوق في غضون دقائق - ليلاً أو نهارًا. ليس هناك حاجة لركن أو انتظار سيارة أجرة أو حافلة. باستخدام Tito ، ما عليك سوى النقر لطلب رحلة ، ومن السهل الدفع باستخدام رصيد أو نقد في مدن محددة."
+            android:layout_gravity="center"
+            android:text="@string/naqel_app_for_delivering_orders"
             android:textAlignment="center"
             android:textColor="@color/wight"
             android:textSize="12dp" />
 
 
-        <ImageView
-            android:id="@+id/imageView7"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/about_text_tv"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/shareParent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/about_text_tv"
+            android:layout_below="@+id/about_text_tv"
+            android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
-            android:padding="15dp"
-            app:srcCompat="@drawable/tito_log" />
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:drawableEnd="?attr/actionModeShareDrawable"
+            android:drawablePadding="10dp"
+            android:drawableTint="@android:color/white"
+            android:gravity="center"
+            android:text="@string/share_app"
+            android:textColor="@android:color/white"
+            android:textSize="12dp" />
 
 
-    </RelativeLayout>
-</android.support.design.widget.CoordinatorLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/about_text_tv"
+            android:layout_alignParentTop="false"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:drawableEnd="@drawable/ic_thumb_up_black_24dp"
+            android:drawablePadding="10dp"
+            android:drawableTint="@android:color/white"
+            android:gravity="center"
+            android:text="@string/rate_on_playstore"
+            android:textColor="@android:color/white"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

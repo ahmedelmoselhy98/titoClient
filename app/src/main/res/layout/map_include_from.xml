@@ -24,15 +24,18 @@
         <!--app:civ_border_color="#fff"-->
         <!--app:civ_border_width="2dp" />-->
         <TextView
+            android:id="@+id/cancelTV"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="cancel"
             android:gravity="center"
-            android:id="@+id/cancelTV"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
             android:textColor="@color/colorPrimary"
-            android:textAllCaps="false"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+
 
     </FrameLayout>
 
@@ -58,10 +61,11 @@
 
     <LinearLayout
         android:id="@+id/driverParent"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="vertical">
 
 
@@ -171,21 +175,22 @@
         </LinearLayout>
 
     </LinearLayout>
-    <Button
-        android:id="@+id/callBtn"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
-        android:background="@drawable/signup_button_back"
-        android:text="Call The Driver"
-        android:paddingRight="60dp"
-        android:paddingLeft="60dp"
 
-        android:textAllCaps="false"
-        android:drawableLeft="@drawable/cellphone_iphone"
-        android:textColor="#FFF"
-        android:textSize="16sp"/>
+        <Button
+            android:id="@+id/callBtn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="@drawable/signup_button_back"
+            android:drawableLeft="@drawable/cellphone_iphone"
+            android:paddingLeft="60dp"
+
+            android:paddingRight="60dp"
+            android:text="@string/call_dirver"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -201,7 +206,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="نهاية الرحلة"
+            android:text="@string/trip_end"
             android:textColor="@color/black"
             android:padding="8dp"
             android:gravity="center"
@@ -242,7 +247,7 @@
             android:layout_weight="1"
             android:layout_gravity="bottom"
             android:background="@drawable/button_background_1"
-            android:text="تقييم الرحلة"
+            android:text="@string/rate_trip"
             android:paddingRight="30dp"
             android:paddingLeft="30dp"
             android:layout_margin="10dp"
@@ -258,7 +263,7 @@
             android:layout_weight="1"
             android:layout_gravity="bottom"
             android:background="@drawable/signup_button_back"
-            android:text="خروج"
+            android:text="@string/exit"
             android:paddingRight="60dp"
             android:paddingLeft="60dp"
             android:textAllCaps="false"
@@ -276,6 +281,33 @@
         android:indeterminateTint="?android:colorAccent"
         android:indeterminateTintMode="src_in"
         android:visibility="gone" />
+
+
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.Pulse"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/colorPrimary" />
+
+
+
+    <TextView
+        android:id="@+id/findDriverTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/search_driver"
+        android:layout_marginBottom="100dp"
+        android:layout_gravity="bottom"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
 
 
 
