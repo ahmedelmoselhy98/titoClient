@@ -62,7 +62,7 @@
     <string name="success">Success</string>
     <string name="fail">Failed</string>
     <string name="trip_price">Trip Price:</string>
-    <string name="pound">EG</string>
+    <string name="pound">EGP</string>
     <string name="trip_time">Trip Time:</string>
     <string name="trip_distance">Trip Distance:</string>
     <string name="kilometer">Kilometer</string>
@@ -75,6 +75,8 @@
     <string name="rate_trip">Trip Rate</string>
     <string name="trip_end">Trip end</string>
     <string name="call_dirver">Call driver</string>
+    <string name="join_as_driver">Join us as a driver</string>
+    <string name="money">EGP</string>
 
 
 </resources>

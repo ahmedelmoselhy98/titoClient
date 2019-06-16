@@ -50,9 +50,9 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, final int i) {
 
         if (!list.get(i).getTripPrice().isEmpty())
-            holder.priceTV.setText("SAR "+list.get(i).getTripPrice());
+            holder.priceTV.setText(context.getResources().getString(R.string.money)+list.get(i).getTripPrice());
         else
-            holder.priceTV.setText("SAR 0.0");
+            holder.priceTV.setText(context.getResources().getString(R.string.money)+" 0.0");
 
         holder.dateTV.setText(holder.handleDateFormat(Long.parseLong(list.get(i).getTime())));
 //        holder.fromTV.setText("(lat: " + list.get(i).getLat() + ", lon: " + list.get(i).getLang() + ")");

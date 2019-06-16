@@ -814,7 +814,7 @@ public class MapsSendOrderActivity extends AppCompatActivity implements OnMapRea
         final ArrayList<CategLocal> data = new ArrayList<>();
 
         data.add(new CategLocal(R.drawable.car0, "تيتو", "تيتو", "-L_wEOtpCYemDnlzh7Ys"));
-        data.add(new CategLocal(R.drawable.car1, "تيتو بلس", "تيتو بلس", "-LwEW_Y_YFhvEJgcccC"));
+        data.add(new CategLocal(R.drawable.car1, "تيتو بلس", "تيتو بلس", "-L_wEW_Y_YFhvEJgcccC"));
 
 
         final CategAdapter adapter = new CategAdapter(data, MapsSendOrderActivity.this, categId);

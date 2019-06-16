@@ -75,6 +75,8 @@
     <string name="rate_trip">تقييم الرحلة</string>
     <string name="trip_end">نهاية الرحلة</string>
     <string name="call_dirver">الاتصال بالسائق</string>
+    <string name="join_as_driver">انضم الينا كسائق</string>
+    <string name="money">جنية</string>
 
 
 </resources>

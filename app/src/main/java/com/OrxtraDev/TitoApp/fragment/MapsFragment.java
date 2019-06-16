@@ -153,13 +153,11 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMyLocationButt
     /**
      * Request code for location permission request.
      *
-     * @see #onRequestPermissionsResult(int, String[], int[])
      */
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     /**
      * Flag indicating whether a requested permission has been denied after returning in
-     * {@link #onRequestPermissionsResult(int, String[], int[])}.
      */
     private boolean mPermissionDenied = false;
 

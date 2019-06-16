@@ -37,7 +37,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:text="SAR 10.8" />
+            android:text="EGP 10.8" />
 
     </LinearLayout>
 

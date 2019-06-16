@@ -152,6 +152,29 @@
             android:textSize="18sp" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/joindirver">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            app:srcCompat="@drawable/taxi_driver" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="@string/join_as_driver"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"

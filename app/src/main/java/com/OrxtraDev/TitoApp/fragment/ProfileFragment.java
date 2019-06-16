@@ -1,6 +1,7 @@
 package com.OrxtraDev.TitoApp.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -99,9 +100,20 @@ public class ProfileFragment extends Fragment {
         startActivity(new Intent(getActivity(), ChangeLanguage.class));
     }
 
-    @OnClick(R.id.about)
-    void about() {
-//        startActivity(new Intent(getActivity(), AboutUsActivity.class));
+    @OnClick(R.id.joindirver)
+    void joindirver() {
+        Intent intent = getActivity().getPackageManager().getLaunchIntentForPackage("com.TitoApp.driver");
+        if (intent != null) {
+            // We found the activity now start the activity
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else {
+            // Bring user to the market or let them choose an app?
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setData(Uri.parse("market://details?id=" + "com.TitoApp.driver"));
+            startActivity(intent);
+        }
     }
 
     @OnClick(R.id.logout)
