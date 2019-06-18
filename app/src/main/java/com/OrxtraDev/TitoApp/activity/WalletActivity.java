@@ -59,7 +59,7 @@ public class WalletActivity extends AppCompatActivity {
         walletRef = FirebaseDatabase.getInstance().getReference().child("Wallet");
         categoryRef = FirebaseDatabase.getInstance().getReference().child("Category");
         carRef = FirebaseDatabase.getInstance().getReference().child("Cars");
-
+        loading.setVisibility(View.VISIBLE);
         walletRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
